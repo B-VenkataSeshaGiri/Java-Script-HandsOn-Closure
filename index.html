@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure Handson</title>
+    <style>
+        h3
+        {
+            color: red;
+        }
+        h4
+        {
+            color: blue;
+        }
+        h1
+        {
+            color: lightgreen;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   
+    <h1>Closure Handson</h1>
+    <h3>Q1)<pre>
+        "function counter(){
+        var counter = 0;
+    
+        function IncreaseCounter() {
+            return counter += 1;
+        };
+    
+        return IncreaseCounter;
+    }
+    
+    var counter = counter();
+    alert(counter());
+    alert(counter());
+    alert(counter());
+    alert(counter());"
+</pre></h3>
+<h4>Sol)
+    <pre>
+    Output:
+    1
+    2
+    3
+    4
+    </pre></h4><br>
+    <h3>Q2)<pre>
+        "let count = 0;
+        (function ()
+        {
+          if (count === 0) {
+            let count = 1;
+            console.log(count); // What is logged?
+        }
+          console.log(count); // What is logged?
+        })();"</pre></h3>
+<h4>Sol: <pre>
+    Output:
+    count=1
+    count=0</pre></h4>
+    <h3>Q3) <pre>
+        "for (var i = 0; i < 3; i++) 
+        {
+        setTimeout(function log()
+        {
+          console.log(i); // What is logged?
+        }, 1000);
+        }"</pre></h3>
+<h4>Sol: <pre>
+    Output:
+    3
+    3
+    3</pre></h4>
+    <h3>Q4) <pre>Write a code to calculate area of a rectangle using inner function. In this case outer function should accept parameter length and inner function should accept parameter breadth.</pre></h3>
+<h4>Sol: <pre>Code:
+    function outer_f(length)
+    {
+        function inner_f(breadth)
+        {
+        let area = length * breadth
+        console.log( `Area of Rectangle of length ${length} and breadth ${breadth} is = ${area}`);
+        })
+        (30);
+    })
+    (12);</pre></h4>
+    <h3>Q5)Take a variable in outer function and create an inner function to increase the counter every time it is called</h3>
+<h4>Sol: <pre>    
+    function outerFunct()
+    {
+    var count = 1;
+    return function innerFunt()
+    {
+      count++;
+      return count;
+    }
+  }
+  const result = outerFunct();
+  console.log(result()); // 2
+  console.log(result()); // 3
+  console.log(result());// 4
+  console.log(result()); // 5</pre></h4>
+  <h3>Q6) <pre>
+    Print Output
+    var a = 12;
+    (function () 
+    {
+      alert(a);
+    })();"</pre></h3>
+<h4>Sol: <pre>Output will be 12</pre></h4>
+<h3>Q7) <pre>
+    var a = 10;
+    var x = (function () 
+    {
+      var a = 12;
+      return function () 
+    {
+        alert(a);
+    };
+    })();
+    x();"</pre></h3>
+<h4>Sol: <pre>Output will be 12</pre></h4>
+<h3>Q) <pre>
+    var globalVar = ""xyz"";
+    (function outerFunc(outerArg)
+    {
+        var outerVar = 'a';    
+        (function innerFunc(innerArg)
+        {
+        var innerVar = 'b';
+        console.log(
+            ""outerArg = "" + outerArg + ""\n"" +
+            ""innerArg = "" + innerArg + ""\n"" +
+            ""outerVar = "" + outerVar + ""\n"" +
+            ""innerVar = "" + innerVar + ""\n"" +
+            ""globalVar = "" + globalVar
+                    );
+        })
+        (456);
+    })
+    (123);"</pre></h3>
+    <h4>Sol: <pre>
+        outerArg = 123
+        innerArg = 456
+        outerVar = a
+        innerVar = b
+        globalVar = xyz</pre></h4>
+</body>
+</html>
